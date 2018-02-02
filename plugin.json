@@ -1,0 +1,14 @@
+{
+  "type": "ecmascript",
+  "id": "shoutcast",
+  "file": "shoutcast.js",
+  "category": "music",
+  "showtimeVersion": "0.0.1",
+  "version": "1.0.0",
+  "author": "LengJing",
+  "title": "Shoutcast",
+  "icon": "shoutcast.bmp",
+  "synopsis": "shoutcast music ",
+  "description":"shoutcast",
+  "homepage":"https://github.com/luckxiang/plugin.dailymotion.git"
+}
