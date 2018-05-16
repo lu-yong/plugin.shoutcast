@@ -1,6 +1,7 @@
 
 var http = require('showtime/http');
 var XML = require('showtime/xml');
+var channel_name_bak = '';
 
 (function(plugin){
 
@@ -30,7 +31,7 @@ var XML = require('showtime/xml');
             var metadata = {
                 title: channel_name
             };
-            
+
             page.appendItem(PLUGIN_PREFIX + 'channel_name:' + channel_name, 'directory', metadata);
 
         }
@@ -40,6 +41,12 @@ var XML = require('showtime/xml');
 
         var num_get_onetime = 16;
         var page_num = 0;
+        var total = 0;
+
+        if(channel_name !== channel_name_bak){
+            total = 0;
+        }
+
         function loader() {
             page_num++;
 
@@ -66,6 +73,9 @@ var XML = require('showtime/xml');
             if(!(station_data.length)){
                 return false;
             }
+
+            total += station_data.length;
+
             for(var i = 0; i < station_data.length; i++) {
                 //print(i + "\tstation_name: " + station_data[i]["@name"] + "\tstation_id: "   + station_data[i]["@id"] + "\tstation_logo: " + station_data[i]["@logo"]);
 
@@ -76,7 +86,7 @@ var XML = require('showtime/xml');
                 var metadata = {
                     title: station_data[i]["@name"],
                     icon: station_data[i]["@logo"],
-                    //extra_data: "total:" + response.total
+                    extra_data: "total dynamic: " + total
                 };
 
                 page.appendItem(PLUGIN_PREFIX + "play_url:" + play_url, "video", metadata);
