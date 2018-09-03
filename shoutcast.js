@@ -74,14 +74,13 @@ var channel_name_bak = '';
                 return false;
             }
 
-            total += station_data.length;
-
             for(var i = 0; i < station_data.length; i++) {
                 //print(i + "\tstation_name: " + station_data[i]["@name"] + "\tstation_id: "   + station_data[i]["@id"] + "\tstation_logo: " + station_data[i]["@logo"]);
 
                 var station_id = station_data[i]["@id"];
                 if(!station_id) continue;
                 var play_url = "http://yp.shoutcast.com/sbin/tunein-station.m3u?id=" + station_id;
+                total++;
 
                 var metadata = {
                     title: station_data[i]["@name"],
