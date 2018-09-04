@@ -45,6 +45,7 @@ var channel_name_bak = '';
 
         if(channel_name !== channel_name_bak){
             total = 0;
+            channel_name_bak = channel_name;
         }
 
         function loader() {
